@@ -21,6 +21,7 @@ class MyHomePage extends StatelessWidget {
         )
       ]),
       body: SingleChildScrollView(
+        // tela pode ser rolada
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[

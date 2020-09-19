@@ -21,7 +21,7 @@ class _TransactionUserState extends State<TransactionUser> {
     ),
     Transaction(
       id: 't2',
-      title: 'Conta de Luz',
+      title: 'Conta #01',
       value: 211.3,
       date: DateTime.now(),
     ),
