@@ -22,7 +22,7 @@ class TransactionForm extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 FlatButton(
-                  child: Text('Nova Transação'),
+                  child: Text('Nova Mudança'),
                   textColor: Colors.red,
                   onPressed: () {
                     final title = titleController.text;
