@@ -9,7 +9,12 @@ main() => runApp(ExpensesApp());
 class ExpensesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: MyHomePage());
+    return MaterialApp(
+        home: MyHomePage(),
+        theme: ThemeData(
+          primarySwatch: Colors.red,
+          accentColor: Colors.amber,
+        ));
   }
 }
 
@@ -47,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _transactions.add(newTransaction);
     });
 
-    Navigator.of(context).pop();
+    Navigator.of(context).pop(); // fechamento de modal
   }
 
   _openTransactionFormModal(BuildContext context) {
