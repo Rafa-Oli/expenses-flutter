@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './components/transaction_list.dart';
 import './components/transaction_form.dart';
+import 'components/chart.dart';
 import 'dart:math';
 import 'package:expenses/models/transaction.dart';
 
@@ -39,19 +40,34 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _transactions = [
-    // Transaction(
-    //   id: 't1',
-    //   title: 'Novo Tênis de Corrida',
-    //   value: 310.76,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't2',
-    //   title: 'Conta #01',
-    //   value: 211.3,
-    //   date: DateTime.now(),
-    // ),
+    Transaction(
+      id: 't1',
+      title: 'Novo Tênis de Corrida',
+      value: 310.76,
+      date: DateTime.now().subtract((Duration(days: 33))),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Conta #01',
+      value: 211.3,
+      date: DateTime.now().subtract((Duration(days: 3))),
+    ),
+    Transaction(
+      id: 't4',
+      title: 'Conta #02',
+      value: 211.3,
+      date: DateTime.now().subtract((Duration(days: 4))),
+    ),
   ];
+// where = filter
+  List<Transaction> get _recentTransactions {
+    //filtrando transações apenas dos ultimos 7 dias
+    return _transactions.where((tr) {
+      return tr.date.isAfter(DateTime.now().subtract(
+        Duration(days: 7),
+      ));
+    }).toList();
+  }
 
   _addTransaction(String title, double value) {
     final newTransaction = Transaction(
@@ -93,13 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-            Container(
-              child: Card(
-                color: Colors.blue,
-                child: Text('Gráfico'),
-                elevation: 5,
-              ),
-            ),
+            Chart(_recentTransactions),
             TransactionList(
                 _transactions), // stateless esta sendo atualizado de fora oq não gera um problema
           ])),
