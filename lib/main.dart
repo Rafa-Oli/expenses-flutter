@@ -70,6 +70,12 @@ class _MyHomePageState extends State<MyHomePage> {
     Navigator.of(context).pop(); // fechamento de modal
   }
 
+  _deleteTransaction(String id) {
+    setState(() {
+      _transactions.removeWhere((tr) => tr.id == id);
+    });
+  }
+
   _openTransactionFormModal(BuildContext context) {
     // reponsavel por iniciar a transação a partir do modal
 
@@ -95,8 +101,8 @@ class _MyHomePageState extends State<MyHomePage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
             Chart(_recentTransactions),
-            TransactionList(
-                _transactions), // stateless esta sendo atualizado de fora oq não gera um problema
+            TransactionList(_transactions,
+                _deleteTransaction), // stateless esta sendo atualizado de fora oq não gera um problema
           ])),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
