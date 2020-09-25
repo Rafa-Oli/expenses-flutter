@@ -1,6 +1,29 @@
-# expenses
+# App Expenses
 
-A new Flutter project.
+#### Aplicativo de despesas pessoais, juntamente com tabela semanal em que cada dia corresponde a seu gasto.
+<img height="450" align="center" src="https://imgur.com/MewCmOR.jpeg" alt="projeto"/> <img height="450" align="center" src="https://imgur.com/rlsmZnN.jpeg" alt="projeto" /> <img height="450" align="center" src="https://imgur.com/Am2Fxz9.jpeg" alt="projeto" />  
+
+### Listagem das despesas semanais:   
+
+<img height="450" align="center" src="https://imgur.com/y62Hm9y.jpeg" alt="projeto" />
+
+##### Alguns dos Widgets mais utilizados:
+ - Stateless
+ - Stateful
+ - Date Picker
+ - Column & Row
+ - List Tile
+ - List View
+
+
+
+
+<img height="450" align="center" src="https://imgur.com/neVkmcJ.gif" alt="projeto" />
+
+
+
+
+
 
 ## Getting Started
 
