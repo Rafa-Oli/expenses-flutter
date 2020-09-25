@@ -74,7 +74,6 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _transactions.removeWhere((tr) => tr.id == id);
     });
-    print('Aquiiiii');
   }
 
   _openTransactionFormModal(BuildContext context) {
