@@ -29,7 +29,7 @@ class ExpensesApp extends StatelessWidget {
           textTheme: ThemeData.light().textTheme.copyWith(
               headline6: TextStyle(
                   fontFamily: 'OpenSans',
-                  fontSize: 20,
+                  fontSize: 20 * MediaQuery.of(context).textScaleFactor,
                   fontWeight: FontWeight.bold)),
         ),
       ),
@@ -88,21 +88,35 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final appBar = AppBar(
+        title: Text(
+          'Despesas Pessoais',
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () => _openTransactionFormModal(context),
+          )
+        ]);
+
+    final availabelHeight = MediaQuery.of(context).size.height -
+        appBar.preferredSize.height -
+        MediaQuery.of(context).padding.top;
     return Scaffold(
-      appBar: AppBar(title: Text('Despesas Pessoais'), actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.add),
-          onPressed: () => _openTransactionFormModal(context),
-        )
-      ]),
+      appBar: appBar,
       body: SingleChildScrollView(
           // tela pode ser rolada
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-            Chart(_recentTransactions),
-            TransactionList(_transactions,
-                _removeTransaction), // stateless esta sendo atualizado de fora oq não gera um problema
+            Container(
+              height: availabelHeight * 0.3,
+              child: Chart(_recentTransactions),
+            ),
+            Container(
+              height: availabelHeight * 0.7,
+              child: TransactionList(_transactions, _removeTransaction),
+            ), // stateless esta sendo atualizado de fora oq não gera um problema
           ])),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
