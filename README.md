@@ -22,15 +22,7 @@
 
 
 
-
-
-
-<img height="450" align="center" src="https://i.imgur.com/CdU5ZqA.gif"/>
-
-
-
-
-
+<img height="450" align="center" src="https://imgur.com/Yt2SjNy.gif" alt="projeto" />
 
 
 
