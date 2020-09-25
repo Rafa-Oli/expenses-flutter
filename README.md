@@ -7,6 +7,10 @@
 
 <img height="450" align="center" src="https://imgur.com/y62Hm9y.jpeg" alt="projeto" />
 
+
+
+
+
 ##### Alguns dos Widgets mais utilizados:
  - Stateless
  - Stateful
@@ -18,7 +22,15 @@
 
 
 
-<img height="450" align="center" src="https://imgur.com/neVkmcJ.gif" alt="projeto" />
+
+
+
+<img height="450" align="center" src="https://i.imgur.com/CdU5ZqA.gif"/>
+
+
+
+
+
 
 
 
