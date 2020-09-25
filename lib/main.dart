@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _addTransaction(String title, double value, DateTime date) {
     final newTransaction = Transaction(
-      id: Random().nextDouble.toString(),
+      id: Random().nextDouble().toString(),
       title: title,
       value: value,
       date: date,
@@ -70,10 +70,11 @@ class _MyHomePageState extends State<MyHomePage> {
     Navigator.of(context).pop(); // fechamento de modal
   }
 
-  _deleteTransaction(String id) {
+  _removeTransaction(String id) {
     setState(() {
       _transactions.removeWhere((tr) => tr.id == id);
     });
+    print('Aquiiiii');
   }
 
   _openTransactionFormModal(BuildContext context) {
@@ -102,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: <Widget>[
             Chart(_recentTransactions),
             TransactionList(_transactions,
-                _deleteTransaction), // stateless esta sendo atualizado de fora oq não gera um problema
+                _removeTransaction), // stateless esta sendo atualizado de fora oq não gera um problema
           ])),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
