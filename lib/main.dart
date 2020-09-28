@@ -43,6 +43,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool _showChart = false;
   final List<Transaction> _transactions = [];
 // where = filter
   List<Transaction> get _recentTransactions {
@@ -107,25 +108,31 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
           // tela pode ser rolada
           child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
             Row(
               children: [
                 Text('Exibir Gráfico'),
                 Switch(
-                  value: true,
-                  onChanged: (value) {},
+                  value: _showChart,
+                  onChanged: (value) {
+                    setState(() {
+                      _showChart = value;
+                    });
+                  },
                 ),
               ],
             ),
-            Container(
-              height: availabelHeight * 0.3,
-              child: Chart(_recentTransactions),
-            ),
-            Container(
-              height: availabelHeight * 0.7,
-              child: TransactionList(_transactions, _removeTransaction),
-            ), // stateless esta sendo atualizado de fora oq não gera um problema
+            if (_showChart)
+              Container(
+                height: availabelHeight * 0.3,
+                child: Chart(_recentTransactions),
+              ),
+            if (!_showChart)
+              Container(
+                height: availabelHeight * 0.7,
+                child: TransactionList(_transactions, _removeTransaction),
+              ), // stateless esta sendo atualizado de fora oq não gera um problema
           ])),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
