@@ -109,6 +109,15 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
+            Row(
+              children: [
+                Text('Exibir Gráfico'),
+                Switch(
+                  value: true,
+                  onChanged: (value) {},
+                ),
+              ],
+            ),
             Container(
               height: availabelHeight * 0.3,
               child: Chart(_recentTransactions),
