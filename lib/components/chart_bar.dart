@@ -19,15 +19,15 @@ class ChartBar extends StatelessWidget {
       builder: (ctx, constraints) {
         return Column(children: <Widget>[
           Container(
-            height: 20,
+            height: constraints.maxHeight * 0.15,
             child: FittedBox(
               // o fittedBox vai fazer diminuir o valor(se for grande) para caber no espaço ideal
               child: Text('${value.toStringAsFixed(2)}'),
             ),
           ),
-          SizedBox(height: 5),
+          SizedBox(height: constraints.maxHeight * 0.05),
           Container(
-            height: constraints.maxHeight *0.8,
+            height: constraints.maxHeight * 0.6,
             width: 10,
             child: Stack(
               alignment: Alignment.bottomCenter,
@@ -55,8 +55,10 @@ class ChartBar extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 5),
-          Text(label),
+          SizedBox(height: constraints.maxHeight * 0.05),
+          Container(
+              child: FittedBox(child: Text(label)),
+              height: constraints.maxHeight * 0.15),
         ]);
       },
     );
