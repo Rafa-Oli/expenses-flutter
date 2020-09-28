@@ -137,12 +137,12 @@ class _MyHomePageState extends State<MyHomePage> {
             //   ),
             if (_showChart || !isLandscape)
               Container(
-                height: availabelHeight * (isLandscape ? 0.7 : 0.3),
+                height: availabelHeight * (isLandscape ? 0.8 : 0.3),
                 child: Chart(_recentTransactions),
               ),
             if (!_showChart || !isLandscape)
               Container(
-                height: availabelHeight * 0.7,
+                height: availabelHeight * (isLandscape ? 1 : 0.7),
                 child: TransactionList(_transactions, _removeTransaction),
               ), // stateless esta sendo atualizado de fora oq não gera um problema
           ])),
