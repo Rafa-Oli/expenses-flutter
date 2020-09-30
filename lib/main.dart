@@ -3,6 +3,7 @@ import './components/transaction_list.dart';
 import './components/transaction_form.dart';
 import 'components/chart.dart';
 import 'dart:math';
+import 'dart:io';
 import 'package:expenses/models/transaction.dart';
 
 main() => runApp(ExpensesApp());
@@ -125,7 +126,8 @@ class _MyHomePageState extends State<MyHomePage> {
             //     mainAxisAlignment: MainAxisAlignment.center,
             //     children: [
             //       Text('Exibir Gráfico'),
-            //       Switch(
+            //       Switch.adaptive(
+            //        activeColor: Theme.of(context).accentColor,
             //         value: _showChart,
             //         onChanged: (value) {
             //           setState(() {
@@ -146,11 +148,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: TransactionList(_transactions, _removeTransaction),
               ), // stateless esta sendo atualizado de fora oq não gera um problema
           ])),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () => _openTransactionFormModal(context),
-      ),
+      floatingActionButton: Platform.isIOS
+          ? Container()
+          : FloatingActionButton(
+              child: Icon(Icons.add),
+              onPressed: () => _openTransactionFormModal(context),
+            ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
+// floating n tem dentro de ios
